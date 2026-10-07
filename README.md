@@ -104,6 +104,30 @@ TraceGuard normalizes source records, retains their provenance in SQLite, comput
 
 Rules-only analysis remains the default. Hybrid risk combines structural completeness, a calibrated anomaly percentile, link strength, observed byte impact, and an explicit authorization reduction. Percentiles and risk scores are not probabilities. A model score cannot supply missing transfer evidence, and cold-start windows may have no anomaly score. See the [model card](docs/MODEL_CARD.md) and [architecture](docs/ARCHITECTURE.md).
 
+```mermaid
+flowchart LR
+    A[CSV or JSONL observations] --> B[Validate and normalize]
+    B --> C[(SQLite retained files, raw rows, and events)]
+    D[Operator supplied trusted context] --> E[Snapshot context and policy]
+    C --> F[Rules only analysis<br/>default]
+    T[Benign training and calibration] --> U[Explicit local baseline fitting]
+    U --> V[Frozen baseline]
+    C --> G[Optional hybrid scoring]
+    V --> G
+    F --> H[Temporal correlation and evidence validation]
+    G --> H
+    E --> H
+    H --> I[(Immutable analysis run)]
+    I --> J[FastAPI]
+    J --> K[React workbench]
+    I --> L[CLI reports and verification]
+
+    X[External alerts, local indicators, cases, and hunts] --> Y[Separate analyst context]
+    Y --> K
+```
+
+The analyzer persists source provenance and run snapshots. External findings and other analyst tools remain separate from native detection evidence and risk.
+
 ## Analyst tools and reports
 
 The workbench can preserve case workflow and human notes, search retained observations with saved hunts, inspect its native predicate catalog, try a bounded Sigma-shaped subset, compare exact local indicators, and review selected external alert formats. These are separate analyst context; they do not alter native incident evidence, risk, or historical metrics.
@@ -164,6 +188,23 @@ TraceGuard is a single-operator defensive analysis prototype. It does not prove 
 | `docs/` | Architecture, schemas, model/evaluation records, scope, and release notes |
 
 Useful references: [five-minute demo](docs/DEMO.md), [full operator guide](full_guide.md), [final-release scope](docs/FINAL_RELEASE_GUIDE.md), [requirements](docs/REQUIREMENTS.md), [limitations](docs/LIMITATIONS.md), and [third-party sources and licenses](docs/THIRD_PARTY.md).
+
+```text
+hacknex-internal-mark-IV/
+├── backend/
+│   ├── src/traceguard/   # API, ingestion, storage, detection, reports, analyst workflows
+│   └── tests/            # Backend tests
+├── frontend/
+│   ├── src/              # React and TypeScript workbench
+│   └── tests/            # Frontend and browser tests
+├── data/samples/         # Synthetic canonical and context-only examples
+├── docs/                 # Architecture, schemas, model notes, guides, release status
+├── scripts/              # Demo, benchmark, release, backup, verification helpers
+├── Dockerfile
+├── LICENSE
+├── README.md
+└── full_guide.md
+```
 
 ## Sources, assistance, and license
 
