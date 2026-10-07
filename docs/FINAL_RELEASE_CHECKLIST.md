@@ -63,7 +63,8 @@ The implementation and acceptance rows below were completed against the user-pro
 - [x] Workload timings and adapter counts are recorded. Process RSS is explicitly **unmeasured**.
 - [x] `submission/traceguard-final-release` is allowlisted and scanned; it excludes credentials, runtime DBs/raw user logs, caches, third-party binaries and private machine paths.
 - [x] README, adapter matrix, model/evaluation limitations, attribution, demo/runbook, feature guide and release status are updated.
-- [x] No publication, deployment, remediation, endpoint collection, upstream platform install, Docker execution or optional Phase 5 work occurred.
+- [x] No deployment, remediation, endpoint collection, upstream platform install, Docker execution or optional Phase 5 work occurred.
+- [x] After the implementation gate, the user-authorized MIT release was published as the public `hacknex-internal-mark-IV` repository; see `docs/RELEASE_STATUS.md`.
 
 ## Owner follow-up
 

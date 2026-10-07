@@ -4,6 +4,8 @@ TraceGuard is a local-first workbench for reconstructing a suspected security in
 
 The primary chain is **unusual login → sensitive-file collection → matching copy to mounted removable media**. TraceGuard reports observed behavior; it does not establish who acted or why.
 
+**Public repository:** [jebarson-caleb/hacknex-internal-mark-IV](https://github.com/jebarson-caleb/hacknex-internal-mark-IV)
+
 ## Project status
 
 This release preserves the rules-only default and the completed Phases 1–4D, with local investigation tools for cases, saved hunts, indicators, selected external alert formats, and evidence-linked ATT&CK views. Hybrid analysis is optional and requires an explicitly fitted local benign baseline.

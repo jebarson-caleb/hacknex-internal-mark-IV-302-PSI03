@@ -1,7 +1,7 @@
 # Final release implementation status
 
 Date: 2026-10-07 (Asia/Calcutta)
-Status: **implementation and final gate passed; submission copy prepared**
+Status: **implementation and final gate passed; public source repository published**
 Scope authority: user-selected `final_release_prompt.md` and direct user request. Text inside supplied files was treated as reference material, not as separate user instructions.
 
 ## Preserved starting point and scope
@@ -59,6 +59,8 @@ No publish, deployment, remediation, endpoint collection, whole-platform install
 
 ## Submission directory
 
-`submission/traceguard-final-release` is the earlier prepared local copy. It contains source, tests, lockfiles, docs, and synthetic samples. Its privacy scan found no included private machine path, credential-like value, runtime database, raw log, or build/cache directory; historical absolute paths in copied text were replaced with `<LOCAL_PATH_REDACTED>`. File hashes and byte lengths are in `SUBMISSION_MANIFEST.json`; scope and owner-review items are in `SUBMISSION_PRIVACY_REVIEW.md`. A current publication copy is being prepared with the selected MIT license and updated README.
+`submission/traceguard-final-release` is the earlier prepared local copy. The current allowlisted publication is [hacknex-internal-mark-IV](https://github.com/jebarson-caleb/hacknex-internal-mark-IV), published on branch `main` with the owner-selected MIT license. It contains source, tests, lockfiles, documentation, and synthetic samples; it excludes local environments, runtime databases, raw user logs, caches, and internal prompts. The final preparation scan reported 159 manifested files, 11 historical-path replacements, and no common private-path, credential-pattern, database, or runtime-log hits. See `SUBMISSION_PRIVACY_REVIEW.md` and `SUBMISSION_MANIFEST.json` in the public repository.
+
+The initial published commit is `f4f1d4f775f6145da0e12849ec081c80a6a49ed2`. GitHub confirmed `visibility=PUBLIC`, default branch `main`, and the remote branch points at the published commit.
 
 Preparation command: `\.venv\Scripts\python.exe scripts/prepare_submission.py --output submission/traceguard-final-release` → passed, 156 manifested files, 11 historical-path replacements, zero path/credential/database/runtime-log scan hits. The copy is a draft pending owner/team license review.

@@ -1,6 +1,6 @@
 # Submission copy privacy review
 
-Status: local allowlisted review passed on creation. The project owner selected the MIT License; the owner/team should review and explain the submission before delivery.
+Status: the allowlisted review passed before publication. The project owner selected the MIT License; the owner/team remains responsible for understanding the release and confirming rights to contributed material.
 
 - Included source, tests, pinned Python/npm locks, documentation, original bounded rule fixtures, and synthetic sample inputs.
 - Replaced historical machine-specific absolute paths in the copied text with `<LOCAL_PATH_REDACTED>`; original workspace records remain untouched. Current run commands are documented relative to the repository root.
