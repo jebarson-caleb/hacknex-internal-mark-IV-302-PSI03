@@ -55,7 +55,7 @@ The Wazuh adapter is limited to its documented selected `alerts.json` JSONL nest
 
 The Sigma subset is not full Sigma; no vendor service or adapter was installed. External records do not become canonical telemetry. ATT&CK coverage is limited to two evidence-gated techniques, not framework-wide coverage, and Navigator UI compatibility was not separately exercised. Imported sources are not independently authenticated. RSS was not measured, POSIX installation and Docker engine were not verified, and production efficacy/generalization is not claimed. The proposed 1% false-positive target remains unmet.
 
-No publish, deployment, remediation, endpoint collection, whole-platform installation or optional Phase5 work was performed.
+At the end of the implementation gate, no publication or deployment had occurred. The user-authorized public source publication is recorded below. No remediation, endpoint collection, whole-platform installation, or optional Phase 5 work was performed.
 
 ## Submission directory
 
@@ -63,4 +63,4 @@ No publish, deployment, remediation, endpoint collection, whole-platform install
 
 The initial published commit is `f4f1d4f775f6145da0e12849ec081c80a6a49ed2`. GitHub confirmed `visibility=PUBLIC`, default branch `main`, and the remote branch points at the published commit.
 
-Preparation command: `\.venv\Scripts\python.exe scripts/prepare_submission.py --output submission/traceguard-final-release` → passed, 156 manifested files, 11 historical-path replacements, zero path/credential/database/runtime-log scan hits. The copy is a draft pending owner/team license review.
+Preparation command for the earlier copy: `\.venv\Scripts\python.exe scripts/prepare_submission.py --output submission/traceguard-final-release` → passed, 156 manifested files, 11 historical-path replacements, zero path/credential/database/runtime-log scan hits. That earlier copy remains as a historical draft; the current public release is linked above.
