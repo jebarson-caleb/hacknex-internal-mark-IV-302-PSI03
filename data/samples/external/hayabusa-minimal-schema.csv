@@ -1,0 +1,2 @@
+Timestamp,Computer,Channel,EventID,Level,RecordID,RuleTitle,Details
+2026-10-07 09:15:00.000 +00:00,fixture-host,Security,4663,informational,101,Synthetic minimal-profile row,Synthetic fixture details only

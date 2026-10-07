@@ -1,0 +1,19 @@
+title: TraceGuard Hunt - file access
+id: e3405500-bc2a-4cb7-9ed1-000000000003
+status: experimental
+description: Locate canonical local-file reads for manual review.
+author: TraceGuard original hunting rules
+references:
+  - docs/FINAL_RELEASE_GUIDE.md#sigma-subset
+logsource:
+  product: traceguard
+  service: canonical_observation
+detection:
+  selection:
+    action: file_read
+  condition: selection
+falsepositives:
+  - Expected application or user file access
+level: informational
+tags:
+  - traceguard.hunt.file

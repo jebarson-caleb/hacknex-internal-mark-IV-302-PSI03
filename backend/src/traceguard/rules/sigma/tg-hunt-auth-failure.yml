@@ -1,0 +1,19 @@
+title: TraceGuard Hunt - explicit failed authentication
+id: e3405500-bc2a-4cb7-9ed1-000000000001
+status: experimental
+description: Locate canonical failed-authentication observations for manual review.
+author: TraceGuard original hunting rules
+references:
+  - docs/FINAL_RELEASE_GUIDE.md#sigma-subset
+logsource:
+  product: traceguard
+  service: canonical_observation
+detection:
+  selection:
+    action: login_failure
+  condition: selection
+falsepositives:
+  - Expected user error or service account activity
+level: low
+tags:
+  - traceguard.hunt.auth

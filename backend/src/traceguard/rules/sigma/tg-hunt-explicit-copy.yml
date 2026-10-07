@@ -1,0 +1,20 @@
+title: TraceGuard Hunt - explicit file copy to removable media
+id: e3405500-bc2a-4cb7-9ed1-000000000006
+status: experimental
+description: Locate explicit canonical file-copy observations to removable media; a hit is not a complete native attack chain.
+author: TraceGuard original hunting rules
+references:
+  - docs/FINAL_RELEASE_GUIDE.md#sigma-subset
+logsource:
+  product: traceguard
+  service: canonical_observation
+detection:
+  selection:
+    action: file_copy_to_usb
+    destination_type: removable_media
+  condition: selection
+falsepositives:
+  - Expected removable-media copy activity
+level: medium
+tags:
+  - traceguard.hunt.transfer

@@ -1,0 +1,15 @@
+{"action": "network_connect", "bytes_sent": 37, "device_id": "d10", "dst_ip": "192.0.2.10", "timestamp": "2026-01-01T09:05:00+00:00", "user_id": "u17"}
+{"action": "network_connect", "bytes_sent": 268, "device_id": "d12", "dst_ip": "192.0.2.10", "timestamp": "2026-01-01T09:11:00+00:00", "user_id": "u14"}
+{"action": "network_connect", "bytes_sent": 710, "device_id": "d20", "dst_ip": "192.0.2.10", "timestamp": "2026-01-01T09:17:00+00:00", "user_id": "u26"}
+{"action": "network_connect", "bytes_sent": 73, "device_id": "d10", "dst_ip": "192.0.2.10", "timestamp": "2026-01-02T09:05:00+00:00", "user_id": "u17"}
+{"action": "network_connect", "bytes_sent": 732, "device_id": "d12", "dst_ip": "192.0.2.10", "timestamp": "2026-01-02T09:11:00+00:00", "user_id": "u14"}
+{"action": "network_connect", "bytes_sent": 225, "device_id": "d20", "dst_ip": "192.0.2.10", "timestamp": "2026-01-02T09:17:00+00:00", "user_id": "u26"}
+{"action": "network_connect", "bytes_sent": 742, "device_id": "d10", "dst_ip": "192.0.2.10", "timestamp": "2026-01-03T09:05:00+00:00", "user_id": "u17"}
+{"action": "network_connect", "bytes_sent": 429, "device_id": "d12", "dst_ip": "192.0.2.10", "timestamp": "2026-01-03T09:11:00+00:00", "user_id": "u14"}
+{"action": "network_connect", "bytes_sent": 665, "device_id": "d20", "dst_ip": "192.0.2.10", "timestamp": "2026-01-03T09:17:00+00:00", "user_id": "u26"}
+{"action": "network_connect", "bytes_sent": 428, "device_id": "d10", "dst_ip": "192.0.2.10", "timestamp": "2026-01-04T09:05:00+00:00", "user_id": "u17"}
+{"action": "network_connect", "bytes_sent": 453, "device_id": "d12", "dst_ip": "192.0.2.10", "timestamp": "2026-01-04T09:11:00+00:00", "user_id": "u14"}
+{"action": "network_connect", "bytes_sent": 780, "device_id": "d20", "dst_ip": "192.0.2.10", "timestamp": "2026-01-04T09:17:00+00:00", "user_id": "u26"}
+{"action": "network_connect", "bytes_sent": 393, "device_id": "d10", "dst_ip": "192.0.2.10", "timestamp": "2026-01-05T09:05:00+00:00", "user_id": "u17"}
+{"action": "network_connect", "bytes_sent": 254, "device_id": "d12", "dst_ip": "192.0.2.10", "timestamp": "2026-01-05T09:11:00+00:00", "user_id": "u14"}
+{"action": "network_connect", "bytes_sent": 264, "device_id": "d20", "dst_ip": "192.0.2.10", "timestamp": "2026-01-05T09:17:00+00:00", "user_id": "u26"}

@@ -1,0 +1,131 @@
+{
+  "schema_version": "1",
+  "retrieved_on": "2026-10-07",
+  "missing_requested_documents": [
+    "REPOSITORY_RESEARCH.md",
+    "SUBMISSION_CHECKLIST.md"
+  ],
+  "sources": [
+    {
+      "project": "google/timesketch",
+      "repository": "https://github.com/google/timesketch",
+      "inspected_page": "https://timesketch.org/guides/user/search-query-guide/",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "Apache-2.0 project license",
+      "usage_category": "inspiration",
+      "local_destination": "backend/src/traceguard/hunts.py; frontend/src/Hunts.tsx",
+      "modifications": "Original bounded filters and local frozen hunt runs; no source code or UI assets reused",
+      "notices_required": false
+    },
+    {
+      "project": "dfir-iris/iris-web",
+      "repository": "https://github.com/dfir-iris/iris-web",
+      "inspected_page": "https://docs.dfir-iris.org/latest/operations/cases/tasks/",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "LGPL-3.0 project license",
+      "usage_category": "inspiration",
+      "local_destination": "backend/src/traceguard/cases.py; frontend/src/Cases.tsx",
+      "modifications": "Original single-operator case, note, task, bookmark and audit workflow; no source code reused",
+      "notices_required": false
+    },
+    {
+      "project": "SigmaHQ/sigma-specification",
+      "repository": "https://github.com/SigmaHQ/sigma-specification",
+      "inspected_page": "https://sigmahq.io/sigma-specification/specification/sigma-rules-specification.html; https://sigmahq.io/sigma-specification/specification/sigma-appendix-modifiers.html",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "Sigma specification public domain; SigmaHQ rule repository uses DRL 1.1",
+      "usage_category": "specification",
+      "local_destination": "backend/src/traceguard/sigma_hunts.py; backend/src/traceguard/rules/sigma/*.yml; frontend/src/Rules.tsx",
+      "modifications": "Original bounded SafeLoader and allowlisted retained-observation evaluator; six original TraceGuard hunting rules; unsupported constructs rejected; no SigmaHQ rules, logo, or pySigma code reused",
+      "notices_required": false
+    },
+    {
+      "project": "OpenCTI-Platform/opencti",
+      "repository": "https://github.com/OpenCTI-Platform/opencti",
+      "inspected_page": "https://docs.opencti.io/latest/usage/exploring-observations/",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "Community Edition Apache-2.0; Enterprise Edition separately licensed",
+      "usage_category": "inspiration",
+      "local_destination": "backend/src/traceguard/intelligence.py; frontend/src/Intelligence.tsx",
+      "modifications": "Original exact local indicator matching; no OpenCTI code, data or service reused",
+      "notices_required": false
+    },
+    {
+      "project": "wazuh/wazuh",
+      "repository": "https://github.com/wazuh/wazuh",
+      "inspected_page": "https://documentation.wazuh.com/current/user-manual/capabilities/log-data-collection/journald.html; https://documentation.wazuh.com/current/user-manual/manager/alert-management.html",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "Wazuh source includes GPL-2.0 and file-specific license exceptions; documentation license was not separately reviewed",
+      "usage_category": "format_reference",
+      "local_destination": "backend/src/traceguard/external_findings.py; data/samples/external/wazuh-alerts-schema.jsonl; frontend/src/ExternalFindings.tsx",
+      "modifications": "Independent bounded parser for documented alerts.json fields and independently authored synthetic schema fixture; uploads remain context-only; no Wazuh code/rules or live service",
+      "notices_required": false
+    },
+    {
+      "project": "Yamato-Security/hayabusa",
+      "repository": "https://github.com/Yamato-Security/hayabusa",
+      "inspected_page": "https://github.com/Yamato-Security/hayabusa/blob/main/website/docs/output/index.md; https://github.com/Yamato-Security/hayabusa/blob/main/website/docs/commands/dfir-timeline.md",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "Hayabusa software AGPL-3.0; rules DRL 1.1",
+      "usage_category": "format_reference",
+      "local_destination": "backend/src/traceguard/external_findings.py; data/samples/external/hayabusa-minimal-schema.csv; frontend/src/ExternalFindings.tsx",
+      "modifications": "Independent exact-header CSV mapper for the documented minimal profile and an independently authored synthetic schema fixture; no Hayabusa code/rules or execution",
+      "notices_required": false
+    },
+    {
+      "project": "MITRE ATT&CK",
+      "repository": "https://attack.mitre.org",
+      "inspected_page": "https://attack.mitre.org/techniques/T1005/; https://attack.mitre.org/techniques/T1052/001/; https://attack.mitre.org/resources/terms-of-use/",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "MITRE terms authorize research/development/commercial use with copyright and license attribution for copied material",
+      "usage_category": "taxonomy_metadata",
+      "local_destination": "backend/src/traceguard/attack_view.py; docs/THIRD_PARTY.md; generated Navigator layers",
+      "modifications": "Only verified IDs/names and linked source pages for two evidence-gated techniques; no description text, logo or unrelated mappings copied",
+      "notices_required": true,
+      "required_notice": "© 2026 The MITRE Corporation. This work is reproduced and distributed with the permission of The MITRE Corporation."
+    },
+    {
+      "project": "mitre-attack/attack-navigator",
+      "repository": "https://github.com/mitre-attack/attack-navigator",
+      "inspected_page": "https://github.com/mitre-attack/attack-navigator/blob/master/layers/spec/v4.3/layerformat.md",
+      "revision_or_content_sha256": "57ccdb1c3dcd0dd4eaacc8e654d29efa551ca8866222b2e076cdfd4d33705a",
+      "retrieved": "2026-10-07",
+      "observed_license": "Apache-2.0 project license",
+      "usage_category": "format_reference",
+      "local_destination": "backend/src/traceguard/attack_view.py; generated Navigator layers",
+      "modifications": "Generated minimal layer JSON following the versioned v4.3 contract; no Navigator code reused",
+      "notices_required": false
+    },
+    {
+      "project": "yaml/pyyaml",
+      "repository": "https://github.com/yaml/pyyaml",
+      "inspected_page": "https://pyyaml.org/wiki/PyYAMLDocumentation; https://github.com/yaml/pyyaml/releases/tag/6.0.3",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "MIT",
+      "usage_category": "dependency",
+      "local_destination": "backend/pyproject.toml; backend/requirements.lock",
+      "modifications": "Pinned PyYAML 6.0.3 dependency for safe YAML parsing; no vendored source",
+      "notices_required": false
+    },
+    {
+      "project": "kjd/idna",
+      "repository": "https://github.com/kjd/idna",
+      "inspected_page": "https://github.com/kjd/idna",
+      "revision_or_content_sha256": null,
+      "retrieved": "2026-10-07",
+      "observed_license": "BSD-3-Clause",
+      "usage_category": "dependency",
+      "local_destination": "backend/pyproject.toml; backend/requirements.lock; backend/src/traceguard/intelligence.py",
+      "modifications": "Pinned idna 3.20 for strict UTS #46 domain normalization in local exact indicators; no package source vendored",
+      "notices_required": false
+    }
+  ]
+}

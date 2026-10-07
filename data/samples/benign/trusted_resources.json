@@ -1,0 +1,9 @@
+[
+  {
+    "resource_id": "synthetic-office:file:resource-468",
+    "sensitive": true,
+    "provenance": "Seeded synthetic asset catalog; operator-supplied trusted context, not log text",
+    "effective_from": "2026-01-01T00:00:00+00:00",
+    "effective_until": null
+  }
+]

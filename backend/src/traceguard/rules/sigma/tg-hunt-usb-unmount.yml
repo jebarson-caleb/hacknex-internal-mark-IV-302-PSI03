@@ -1,0 +1,19 @@
+title: TraceGuard Hunt - removable media unmount
+id: e3405500-bc2a-4cb7-9ed1-000000000005
+status: experimental
+description: Locate canonical removable-media unmount observations for manual review.
+author: TraceGuard original hunting rules
+references:
+  - docs/FINAL_RELEASE_GUIDE.md#sigma-subset
+logsource:
+  product: traceguard
+  service: canonical_observation
+detection:
+  selection:
+    action: usb_unmount
+  condition: selection
+falsepositives:
+  - Expected peripheral removal
+level: informational
+tags:
+  - traceguard.hunt.device

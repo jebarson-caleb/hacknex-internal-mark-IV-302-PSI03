@@ -1,0 +1,55 @@
+# Phase 1 architecture
+
+The engine (`ingest.py`, `detection.py`, schemas) is independent of FastAPI/React. `Store` encapsulates parameterized SQLite access with foreign keys and dataset/time indexes. Files, canonical events, raw rows, context and immutable analyses survive restarts. Duplicate rows reference the same canonical event. Import transactions rollback whole-file/storage-limit failures.
+
+`demo.py` generates observations and separate trusted synthetic resource labels; inference does not inspect filenames, dataset names, scenario variant, seed or evaluation labels. CLI and API call the same analyzer. The generator is the only place that chooses scenario variants.
+
+`analyze` selects accepted events through an explicit event-time cutoff, snapshots context/config, correlates candidate episodes, validates every claim against observations and retained source material, and stores the completed run. Evidence-validation failure raises an actionable error before a run is saved. Empty/cold-start data is explicit. No ML artifacts or background jobs exist.
+
+FastAPI routes are under `/api`; unknown API routes return JSON 404 rather than static HTML. Vite proxies `/api` in development. Built local assets are served through FastAPI in the default demo. Browser controls call actual persistence/analysis/evidence routes. Static routing only needs the single `/` workbench page in Phase 1.
+
+## Phase 2 extension
+
+The default engine path remains intact. `baseline.py` fits explicit benign training, freezes history, scores separate calibration windows, validates calibration candidates and stores estimator/calibration metadata. `features.py` computes typed 15-minute observations against frozen history. `resolution.py` applies only direct time-valid trusted aliases. `graph.py` produces NetworkX typed provenance and required-edge checks. `risk.py` implements the inspectable hybrid policy.
+
+`hybrid.py` loads a compatible artifact, rejects overlapping/future/environment-incompatible use, resolves observations without editing retained events, computes closed-window scores, correlates through existing rules, rechecks evidence and graph predicates, scores candidates and persists immutable runs. CLI verification rebuilds from source event IDs and run snapshots and compares the stored numeric breakdown. SQLite adds baselines, aliases and evaluations without resetting existing tables.
+
+Evaluation-only `evaluation/fixtures.py` generates chronology and label sidecars. `evaluation/metrics.py` performs one-to-one incident matching and explicit benign-unit denominators. `evaluation/benchmark.py` orchestrates fitting and both independent prediction runs before loading labels into metric computation. Inference modules do not import this package. `/api/evaluations` and the benchmark CLI are explicit evaluation entry points; arbitrary uploaded data gets no invented metrics.
+
+## Phase 3 workbench and reports
+
+`context.py` evaluates scoped operator authorizations and builds deterministic response-review suggestions. Existing analyzers snapshot that context; hybrid-v2 applies B=20 once on exact matching copy declarations. Rules-only keeps original score semantics. New analysis persistence freezes stage/context/history source references. `reports.py` verifies retained claims and exports minimal/full JSON or readable Markdown plus a verifiable JSON payload. CLI `verify-report` compares submitted claims rather than trusting only an ID. Original `verify` remains compatible with legacy hybrid-v1 artifacts.
+
+The React workbench navigates retained runs by URL/selector, filters and pages candidates through the API, links stages to graph edges/nodes and original rows, and downloads verified backend reports. `EntityGraph.tsx` extends the relation renderer with a bounded SVG projection and accessible provenance controls. New context edits affect future runs only. Native smoke scripts verify real CLI exports and loopback API/static serving across process restart; Docker packages this same stack, with runtime data outside the image.
+
+## Phase 4A immutable analysis view
+
+`views.py` is a read-only store projection consumed by the existing analyzer. Ordinary saves add `analysis-view-v1`, exact implementation/library fingerprints, frozen dataset/quality and source references for every inference/history observation. The parent retains event membership/cutoff/context/config and selected baseline metadata/model hash. Creation refuses unavailable historical snapshots or versions and first reproduces the parent semantically (all incident fields except fresh run/incident IDs; all run findings except lineage/reference/view bookkeeping). It never reads current resource/authorization/alias context for a branch.
+
+Exclusions remove canonical observations from active membership; duplicates stay retained. Fixed training history remains separate. Features, forest scores, candidates, validations, graphs, risk and decisions are rebuilt. `sensitivity.py` atomically stores child plus comparison, sorts candidates consistently with SQLite and matches exact family/actor/endpoint plus overlapping episode time and shared evidence. Multiple plausible matches are explicit. Branch counts belong to the experimental run, not the parent's ordinary counts. Full source/no-op/child verification is synchronous and bounded; no incremental cache, replay controls or automatic fitting.
+
+The minimal JSON subtype resolves local originals and recomputes both views on verification, including empty children. API export and CLI `verify-report` check submitted lineage/differences and retained snapshots rather than trusting hashes alone. Ordinary JSON/Markdown formats and legacy verification remain intact. The native smoke script checks the built UI, actual API inference/exports and restart persistence in a fresh database.
+
+## Phase 4B ordinary-run comparisons
+
+`lookalikes.py` validates each ordinary retained analysis through the existing frozen view/no-op reproduction and persists a comparison referencing both run IDs. It compares observation membership/content separately from authorization context, with artifact, cutoff, policy, source and non-authorization context identities. Context-only also requires identical stage support, linkage, non-context risk terms and model windows. Scenario comparison requires disclosure of every differing structured input. Correspondence uses scoped family/actor/endpoint, episode time overlap and shared evidence; unmatched/ambiguous outcomes have no invented delta. Pagination never filters away partial/review/alert candidates.
+
+SQLite adds `lookalikes` and separate `lookalike_annotations` tables without rewriting previous data. The evaluation-only lab uses ordinary ingestion/analysis and adds truth only after predictions. Its loader uses a caller-selected baseline; it does not fit or recalibrate. Frozen-analysis source navigation handles observations without incident candidates. UI requests have a selection generation guard, clear old arms while loading and retain `lookalike` URLs. Per-arm existing reports and 4A comparison verification are reused; optional standalone 4B export is omitted. No changes to the 4A request contract, model or inference policy modules.
+
+## Phase 4C cutoff views
+
+`replay.py` extends `AnalysisView` in an isolated subclass; the fingerprinted ordinary detector/view modules are unchanged. Constructor checks frozen parent sources/policy/model, then both actual training/calibration material and declared closed intervals against the whole replay range. Inference uses exactly retained parent observations at or before T; no exclusions or mutable context. Ordinary features, closed windows, candidates, graph, risk, decisions and recommendations are recomputed. Early quality does not reuse final parent quarantine counts; parent metadata remains a separately labeled retrospective overview.
+
+Creation independently reproduces the ordinary parent, captures the cutoff rerun, and atomically inserts its analysis/candidates plus a replay manifest. A SQLite unique parent/cutoff key and serialized final insertion avoid duplicate concurrent frames. Reuse validates the complete effective manifest, artifact/policy/context/source identities and current replay implementation before returning it. Up to 200 distinct retained frames per parent; no eviction or evidence deletion. Source references in frames include only eligible inference/fixed history. Read routes, graph/evidence and reports invoke fresh frame validation against a real cutoff rerun. Reports carry the replay manifest in addition to existing report-v1 claims and verify through the existing CLI.
+
+Frontend `Replay.tsx` uses explicit submissions, exact UTC microsecond navigation, distinct event/window stops, generation guards and separately labeled requested/displayed cutoffs. `App.tsx` loads new run candidates/observations atomically, clears evidence/graphs on selection and guards asynchronous source/graph results. Existing `?run` persistence and candidate pages are reused. Full synchronous source verification is retained; there is no incremental or live-streaming performance guarantee.
+
+Replay read guards also consult SQLite replay lineage so removing both run labels cannot disguise a persisted frame as ordinary. The source drawer labels its owning run/history role, and sources explicitly opened from separate 4B arms are marked as separate from current frame support. Normalized dataset inspection remains independent of incident evidence membership, while replay observation inspection remains frame-scoped.
+
+## Final-release workbench extensions
+
+`cases.py` and `hunts.py` add versioned local investigation records, verified source bookmarks, immutable revisions, audits, saved query executions and checked exports in additive SQLite migrations. `sigma_hunts.py` is a bounded safe-YAML parser for a declared TraceGuard-only selection subset; it evaluates retained guarded observations and does not alter the analyzer. `intelligence.py` stores typed local indicator assertions and immutable exact-match output. None of these outputs are imported by detector, feature, risk or evaluation code.
+
+`external_findings.py` preserves bounded Wazuh JSONL and Hayabusa minimal-CSV uploads, raw bytes, row positions and hashes as external artifacts. Its rows are stored separately from `events`, and case links/export verification preserve that boundary. `attack_view.py` derives only two explicitly gated Enterprise ATT&CK mappings from the current verified run/frame and exports a minimal Navigator layer. Existing `replay.guard_run` validation remains in the access path. `SameOriginWriteGuard` rejects explicit cross-origin state-changing browser requests while preserving origin-less local CLI use. The full support and limitation matrix is in `FINAL_RELEASE_GUIDE.md`.
+
+`scripts/db_snapshot.py` uses SQLite's online backup API and validates integrity/foreign-key constraints without overwriting an existing destination. It is an explicit operator tool; no automatic backup scheduling, remote storage, migration rollback, or multi-user coordination is added.

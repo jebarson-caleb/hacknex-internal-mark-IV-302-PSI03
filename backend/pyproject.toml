@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traceguard"
+version = "0.1.0"
+description = "Local rules-only evidence reconstruction (Phase 1)"
+requires-python = ">=3.12,<3.14"
+dependencies = ["fastapi==0.142.2", "pydantic==2.13.5", "uvicorn==0.54.0", "python-multipart==0.0.32", "tzdata==2026.5", "scikit-learn==1.9.1", "networkx==3.7", "numpy==2.5.3", "PyYAML==6.0.3", "idna==3.20"]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1", "httpx==0.28.1"]
+
+[project.scripts]
+traceguard = "traceguard.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+traceguard = ["rules/sigma/*.yml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

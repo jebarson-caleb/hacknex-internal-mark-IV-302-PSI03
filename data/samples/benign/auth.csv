@@ -1,0 +1,17 @@
+action,app_id,device_id,src_ip,timestamp,user_id
+login_success,app6,d10,10.0.0.5,2026-01-01T09:00:00+00:00,u17
+login_success,app6,d12,10.0.0.5,2026-01-01T09:06:00+00:00,u14
+login_success,app6,d20,10.0.0.5,2026-01-01T09:12:00+00:00,u26
+login_success,app6,d10,10.0.0.5,2026-01-02T09:00:00+00:00,u17
+login_success,app6,d12,10.0.0.5,2026-01-02T09:06:00+00:00,u14
+login_success,app6,d20,10.0.0.5,2026-01-02T09:12:00+00:00,u26
+login_success,app6,d10,10.0.0.5,2026-01-03T09:00:00+00:00,u17
+login_success,app6,d12,10.0.0.5,2026-01-03T09:06:00+00:00,u14
+login_success,app6,d20,10.0.0.5,2026-01-03T09:12:00+00:00,u26
+login_success,app6,d10,10.0.0.5,2026-01-04T09:00:00+00:00,u17
+login_success,app6,d12,10.0.0.5,2026-01-04T09:06:00+00:00,u14
+login_success,app6,d20,10.0.0.5,2026-01-04T09:12:00+00:00,u26
+login_success,app6,d10,10.0.0.5,2026-01-05T09:00:00+00:00,u17
+login_success,app6,d12,10.0.0.5,2026-01-05T09:06:00+00:00,u14
+login_success,app6,d20,10.0.0.5,2026-01-05T09:12:00+00:00,u26
+login_success,app5,d6,10.0.0.5,2026-01-07T09:18:00+00:00,u17
