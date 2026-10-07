@@ -14,6 +14,29 @@ It reconstructs observed behavior; it does not prove a person's intent or take r
 - Use optional local baseline scoring, evidence comparisons, event-time replay, cases, hunts, local indicators, and selected external alert formats.
 - Keep external findings and other analyst context outside native detection evidence and risk.
 
+## Screenshots
+
+Screenshots below use seeded synthetic data from the local workbench.
+
+| Workbench overview | Evidence-backed incident timeline |
+|---|---|
+| ![TraceGuard workbench overview](docs/screenshots/workbench-overview.png) | ![Positive synthetic demo with a validated timeline](docs/screenshots/incident-timeline.png) |
+
+## MVP and completion status
+
+| Scope | Capability | Status |
+|---|---|---|
+| MVP | CSV/JSONL ingestion, normalization, provenance, and deduplication | Implemented |
+| MVP | Rules-only temporal reconstruction, evidence validation, and partial observations | Implemented |
+| MVP | Workbench timelines, entity graph, source review, and verified reports | Implemented |
+| MVP | Seeded benign, positive, and missing-transfer demos | Implemented |
+| Extension | Explicit local benign baseline and optional hybrid scoring | Implemented; saved synthetic evaluation shows no measured detection gain |
+| Extension | Evidence sensitivity, look-alike comparisons, and event-time replay | Implemented |
+| Extension | Cases, hunts, local indicators, external context, and ATT&CK export | Implemented |
+| Future scope | Multi-week low-and-slow campaigns, public-dataset adapter, and optional AI narrator | Not included |
+
+Status describes delivered functionality, not detection quality. The proposed 1% benign false-positive target remains unmet; see [evaluation](docs/EVALUATION.md), [limitations](docs/LIMITATIONS.md), and [project scope](docs/SCOPE.md).
+
 ## Architecture
 
 ```mermaid
@@ -85,6 +108,7 @@ hacknex-internal-mark-IV-302-PSI03/
 ├── frontend/tests/           # Frontend and browser tests
 ├── data/samples/             # Synthetic examples
 ├── docs/                     # Architecture, schemas, evaluation, guides
+│   └── screenshots/           # README workbench screenshots
 ├── scripts/                  # Demo, benchmark, backup, verification
 ├── README.md
 ├── full_guide.md

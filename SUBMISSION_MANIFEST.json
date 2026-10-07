@@ -1,6 +1,6 @@
 {
   "created_at_utc": "2026-10-07T10:23:15.008519+00:00",
-  "file_count": 159,
+  "file_count": 161,
   "files": {
     ".dockerignore": {
       "sha256": "5d90c89f913901967721cc9464eaa43824887e6cd07bcae7cced9ff525508edc",
@@ -23,8 +23,8 @@
       "bytes": 1069
     },
     "README.md": {
-      "sha256": "43f426907d64d7c7f96efe3cdf6d9e332744ea89d2f1a4390354b5a2f7e72a81",
-      "bytes": 5284
+      "sha256": "3b384cb1797cfcd6a1a46c7e6ef82a9965061060dbdf06e448ccddfae5873ece",
+      "bytes": 6828
     },
     "SUBMISSION_PRIVACY_REVIEW.md": {
       "sha256": "d9ebedf20c881f6ce631af164feb863dd2c3e8a86aba7375b9254445e429f111",
@@ -453,6 +453,14 @@
     "docs/THIRD_PARTY_SOURCES.json": {
       "sha256": "0a1d173111323b28d08e8db003535cf3ed4f45e38c9fbb3fe821d814a34c4b88",
       "bytes": 7733
+    },
+    "docs/screenshots/incident-timeline.png": {
+      "sha256": "a61f0b83aab4dec4806c9bf7403276c6c65ada515fe22f8efff26b1e80908474",
+      "bytes": 78919
+    },
+    "docs/screenshots/workbench-overview.png": {
+      "sha256": "7d74c666a03fec8f87d9242e5a3957d1f64efb346dfd81dff6eede6c01d6e00c",
+      "bytes": 91369
     },
     "frontend/index.html": {
       "sha256": "9034a6f850173cab50f0f8bdcd486b1a2fd892823b5b5b805a670b319deda139",
